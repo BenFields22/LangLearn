@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import "./signIn.css";
 
 import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './PasswordForget';
@@ -9,11 +10,13 @@ import 'firebase/database';
 import * as routes from '../constants/routes';
 
 const SignInPage = ({ history }) =>
-  <div>
-    <h1>SignIn</h1>
-    <SignInForm history={history} />
-    <PasswordForgetLink />
-    <SignUpLink />
+  <div className="SignIn">
+    <div className="cont">
+      <h1>SignIn</h1>
+      <SignInForm history={history} />
+      <PasswordForgetLink />
+      <SignUpLink />
+    </div>
   </div>
 
 const byPropKey = (propertyName, value) => () => ({
@@ -79,19 +82,19 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="InForm" onSubmit={this.onSubmit}>
         <input
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
+          type="email"
           placeholder="Email Address"
-        />
+        /><br/>
         <input
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
           type="password"
           placeholder="Password"
-        />
+        /><br/>
         <button disabled={isInvalid} type="submit">
           Sign In
         </button>

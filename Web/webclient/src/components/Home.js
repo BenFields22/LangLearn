@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import "./home.css";
 
 import withAuthorization from './withAuthorization';
-import { db } from '../firebase';
+//import { db } from '../firebase';
 
 class HomePage extends Component {
   constructor(props) {
@@ -14,38 +15,36 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    db.onceGetUsers().then(snapshot =>
-      this.setState({ users: snapshot.val() })
-    );
-
     var test = localStorage.getItem('user');
     //console.log(test)
-    ReactDOM.render(<h2>Welcome {test}</h2>, document.getElementById('Welcome'));
+    ReactDOM.render(<h1>Welcome {test}</h1>, document.getElementById('Welcome'));
 
   }
 
+  renderWords = () =>{
+    ReactDOM.render(<h1>Words</h1>, document.getElementById('WorkSpace'));
+  }
+
+  renderTest = () => {
+    ReactDOM.render(<h1>Test</h1>, document.getElementById('WorkSpace'));
+  }
+
   render() {
-    const { users } = this.state;
+    
     return (
-      <div>
-        <h1>Home</h1>
+      <div className="home">
         <div id="Welcome"></div>
-        <p>The Home Page is accessible by every signed in user.</p>
-        { !!users && <UserList users={users} /> }
+        <button type="button" onClick={this.renderWords}>Word Management</button>
+        <button type="button" onClick={this.renderTest}>Take Quiz</button>
+        <hr/>
+        <div id="WorkSpace">
+
+        </div>
       </div>
     );
   }
 }
 
-const UserList = ({ users }) =>
-  <div>
-    <h2>List of Usernames of Users</h2>
-    <p>(Saved on Sign Up in Firebase Database)</p>
-
-    {Object.keys(users).map(key =>
-      <div key={key}>{users[key].username}</div>
-    )}
-  </div>
 
 const authCondition = (authUser) => !!authUser;
 

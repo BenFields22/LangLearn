@@ -1,8 +1,11 @@
 import React from 'react';
 
 const LandingPage = () =>
-  <div>
-    <h1>Landing Page</h1>
+  <div className="landing">
+    <p>
+      <strong>Welcome to LangLearn</strong><br/>
+      Please login or sign up to practice your language skills
+    </p>
   </div>
 
 export default LandingPage;
