@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import "./home.css";
+import Manager from "./wordManager";
+import Tester from "./tester";
 
 import withAuthorization from './withAuthorization';
 //import { db } from '../firebase';
@@ -22,11 +24,11 @@ class HomePage extends Component {
   }
 
   renderWords = () =>{
-    ReactDOM.render(<h1>Words</h1>, document.getElementById('WorkSpace'));
+    ReactDOM.render(<Manager/>, document.getElementById('WorkSpace'));
   }
 
   renderTest = () => {
-    ReactDOM.render(<h1>Test</h1>, document.getElementById('WorkSpace'));
+    ReactDOM.render(<Tester/>, document.getElementById('WorkSpace'));
   }
 
   render() {
@@ -34,8 +36,8 @@ class HomePage extends Component {
     return (
       <div className="home">
         <div id="Welcome"></div>
-        <button type="button" onClick={this.renderWords}>Word Management</button>
-        <button type="button" onClick={this.renderTest}>Take Quiz</button>
+        <button id="wordButton" type="button" onClick={this.renderWords}>Word Management</button>
+        <button id="quizButton" type="button" onClick={this.renderTest}>Take Quiz</button>
         <hr/>
         <div id="WorkSpace">
 

@@ -24,8 +24,8 @@ const NavigationAuth = () =>
 
 const NavigationNonAuth = () =>
   <ul className="nav">
-    <li><Link to={routes.LANDING}>Landing</Link></li>
-    <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
+    <li><Link to={routes.LANDING}>Welcome</Link></li>
+    <li><Link to={routes.SIGN_IN}>SignIn</Link></li>
   </ul>
 
 export default Navigation;

@@ -20,4 +20,5 @@
 
 .Account button:hover{
   background-color: rgb(34, 153, 143);
+  cursor: pointer;
 }

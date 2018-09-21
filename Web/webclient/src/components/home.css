@@ -17,6 +17,7 @@
   border-radius: 5px;
   background-color: #492;
   color:white;
+  font-size:25px;
 }
 .home button:hover{
   cursor: pointer;

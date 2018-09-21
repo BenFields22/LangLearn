@@ -1,0 +1,12 @@
+.manager button{
+  height:30px;
+  width:100px;
+  font-size:20px;
+}
+
+
+.deleteCont button{
+  height:30px;
+  width:100px;
+  background-color:rgb(241, 112, 89);
+}
